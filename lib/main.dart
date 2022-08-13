@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/pages/home_page.dart';
+import 'package:weather_app/pages/start_screen.dart';
 
 void main() {
   runApp( Weather());
@@ -11,7 +11,7 @@ class Weather extends StatelessWidget {
     // TODO: implement build
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: StartScreen(),
     );
   }
 }

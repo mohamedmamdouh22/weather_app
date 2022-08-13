@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/main.dart';
 
+import '../models/weather_model.dart';
 import '../services/wheather_service.dart';
 
 class SearchPage extends StatelessWidget {
@@ -34,9 +35,10 @@ class SearchPage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          MaterialButton(
-            onPressed: () {
-              WheatherService().getWeather(cityName: cityName!);
+           MaterialButton(
+            onPressed: () async {
+              WeatherModel res=await WheatherService().getWeather(cityName: cityName!);
+              print(res);
             },
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
             color: Color(0xff4a81f6),

@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_app/pages/home_screen.dart';
 import 'package:weather_app/pages/search_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class StartScreen extends StatelessWidget {
+  const StartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
             MaterialButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return SearchPage();
+                  return HomeScreen();
                 }));
               },
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
