@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/pages/search_page.dart';
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
-  WeatherModel? weather;
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  void updateUi(){
+    setState(() {
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -15,14 +25,15 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return SearchPage();
+                return SearchPage(update: updateUi,);
               }));
             },
             icon: Icon(Icons.search),
           ),
         ],
       ),
-      body: weather!=null ?Center(
+      body: weatherdata==null ?
+      Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

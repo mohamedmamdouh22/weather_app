@@ -6,7 +6,8 @@ import '../models/weather_model.dart';
 import '../services/wheather_service.dart';
 
 class SearchPage extends StatelessWidget {
-
+  SearchPage({required this.update});
+  VoidCallback update;
   String? cityName;
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,9 @@ class SearchPage extends StatelessWidget {
            MaterialButton(
             onPressed: () async {
               WeatherModel res=await WheatherService().getWeather(cityName: cityName!);
-              print(res);
+              weatherdata=res;
+              update();
+              Navigator.pop(context);
             },
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
             color: Color(0xff4a81f6),
@@ -57,3 +60,4 @@ class SearchPage extends StatelessWidget {
     );
   }
 }
+WeatherModel? weatherdata;
