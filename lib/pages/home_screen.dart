@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/pages/search_page.dart';
+import 'package:weather_app/providers/weather_provider.dart';
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -9,11 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  void updateUi(){
-    setState(() {
 
-    });
-  }
   @override
   Widget build(BuildContext context) {
 
@@ -25,14 +23,14 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context){
-                return SearchPage(update: updateUi,);
+                return SearchPage();
               }));
             },
             icon: Icon(Icons.search),
           ),
         ],
       ),
-      body: weatherdata==null ?
+      body: Provider.of<weatherProvider>(context).WeatherGet==null ?
       Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +51,18 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ):
       Container(
-        color: Colors.orange,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[
+              //Colors.deepOrange,
+              Colors.orange,
+              Colors.orangeAccent,
+              Colors.yellow
+            ]
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

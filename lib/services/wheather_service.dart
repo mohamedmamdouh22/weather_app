@@ -1,8 +1,8 @@
+
 import 'dart:convert';
 
+import '../models/weather_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/models/weather_model.dart';
-
 class WheatherService {
   String baseUrl = 'http://api.weatherapi.com/v1';
   String apiKey = 'fcd0726b7d544a3fad4151949220808';
