@@ -19,7 +19,12 @@ class Weather extends StatelessWidget {
       create: (BuildContext context) {
         return weatherProvider();
       },
-      child: const MaterialApp(
+      child:  MaterialApp(
+        theme: ThemeData(
+          primaryColor:Color(0xff151b5e),
+          brightness: Brightness.dark
+
+        ),
         debugShowCheckedModeBanner: false,
           home: StartScreen(),
       ),
