@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('${data?.city==null?'Search':data?.city}',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-        titleSpacing: 100,
+        centerTitle: true,
         backgroundColor: Color(0xff151b5e),
         actions: [
           IconButton(
@@ -93,8 +93,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child:Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.network('https:${data.image}'),
-                    Text('${data.temp}°',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 70,color: Colors.white) ,),
+                    Image.network('https:${data.cImage}'),
+                    Text('${data.cTemp}°',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 70,color: Colors.white) ,),
                     Text('${data.condition}',style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text('Min: ${data.minTemp}',style:TextStyle(fontSize:20,color: Colors.white,) ,)
                       ],
                     ),
-                    Text('${data.date.substring(10)}',style: TextStyle(color: Colors.white,fontSize: 16),),
+                    Text('${data.date.hour.toString()}:${data.date.minute.toString()}',style: TextStyle(color: Colors.white,fontSize: 16),),
                   ],
                 ),
               ),
@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                      children: [
                        Text('${data.temp}°C',style: TextStyle(fontSize: 25,color: Colors.white),),
                        data.image==null?Text(''):Image.network('https:${data.image}'),
-                       Text('${data.date.substring(5,11)}',style: TextStyle(fontSize: 22,color: Colors.white),),
+                       Text('${data.date.month}-${data.date.day}',style: TextStyle(fontSize: 22,color: Colors.white),),
                      ],
                    ),
                  ),

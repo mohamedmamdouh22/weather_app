@@ -57,9 +57,8 @@ class SearchPage extends StatelessWidget {
              ),
              child: MaterialButton(
               onPressed: () async {
-                WeatherModel res=await WheatherService().getWeather(cityName: cityName!);
+                WeatherModel? res=await WheatherService().getWeather(cityName: cityName!);
                 Provider.of<weatherProvider>(context,listen: false).WeatherData=res;
-                print(res);
                 Navigator.pop(context);
               },
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
